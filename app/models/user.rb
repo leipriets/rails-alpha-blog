@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    before_save { self.email = email.downcase }
+
     #One to many Assocation to article
     has_many :articles
 
