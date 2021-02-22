@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+    #One to many Assocation to article
+    has_many :articles
+
     validates :username, presence: true, 
                 uniqueness: { case_sensitive: false }, 
                 length: { minimum: 3, maximum: 25 }
