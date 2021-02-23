@@ -31,11 +31,11 @@
 /config/master.key
 
 # IDE - VSCode
-.vscode/*
+**/.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
 # VSCode Local History
-.history/*
+/.history/*
