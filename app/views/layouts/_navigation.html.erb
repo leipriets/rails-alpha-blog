@@ -19,21 +19,20 @@
             <% end %>
 
             <%= link_to "View articles", articles_path, class: "dropdown-item" %>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <%# <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li> %>
           </ul>
         </li>
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Profile [<%= current_user.username %>]
+              <%=  "(Admin)" if current_user.admin? %> Profile [<%= current_user.username %>]
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
-
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <%= link_to "Delete profile", user_path(current_user), method: :delete, class: "dropdown-item text-danger", data: { confirm: "Are you sure you want to delete your profile?" } %>
             </ul>
           </li>
 

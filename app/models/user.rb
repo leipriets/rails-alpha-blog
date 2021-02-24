@@ -2,7 +2,7 @@ class User < ApplicationRecord
     before_save { self.email = email.downcase }
 
     #One to many Assocation to article
-    has_many :articles
+    has_many :articles, dependent: :destroy
 
     validates :username, presence: true, 
                 uniqueness: { case_sensitive: false }, 
